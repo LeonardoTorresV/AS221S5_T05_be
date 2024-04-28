@@ -1,16 +1,11 @@
 package msTraductorIA.prueba;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import okhttp3.MediaType;
@@ -20,19 +15,19 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class TraductorIA_prueba {
+    private static final String SUPABASE_URL = "https://wqqmeoqsimjodihxysqs.supabase.co";
+    private static final String SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndxcW1lb3FzaW1qb2RpaHh5c3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQyNjgzOTIsImV4cCI6MjAyOTg0NDM5Mn0.Hv51BuiUKsUQI0l0PZzbFTKc4K2D6SkN_ga5ts9w544";
+
     private static String key = "b328c314264746f885a937ada7680e72";
     private static String location = "eastus";
 
-    // Instancia OkHttpClient.
     OkHttpClient client = new OkHttpClient();
 
-    public String Post(String texto) throws IOException {
-        // Crea el cuerpo de la solicitud
-    	String jsonData = "[{\"Text\": \"" + texto + "\"}]";
+    public String post(String texto) throws IOException {
+        String jsonData = "[{\"Text\": \"" + texto + "\"}]";
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, jsonData);
 
-        // Crea la solicitud
         Request request = new Request.Builder()
                 .url("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=es")
                 .post(body)
@@ -41,49 +36,49 @@ public class TraductorIA_prueba {
                 .addHeader("Content-type", "application/json")
                 .build();
 
-        // Realiza la llamada y obtiene la respuesta
         Response response = client.newCall(request).execute();
         String jsonResponse = response.body().string();
 
-        // Extrae el texto de la traducción del JSON de la respuesta
         JsonParser parser = new JsonParser();
         JsonElement json = parser.parse(jsonResponse);
         JsonArray translations = json.getAsJsonArray().get(0).getAsJsonObject().get("translations").getAsJsonArray();
 
         StringBuilder translatedText = new StringBuilder();
         for (JsonElement translation : translations) {
-          String text = translation.getAsJsonObject().get("text").getAsString();
-          translatedText.append(text).append(" ");
+            String text = translation.getAsJsonObject().get("text").getAsString();
+            translatedText.append(text).append(" ");
         }
 
         return translatedText.toString().trim();
     }
 
+    public void insertarTraduccion(String palabraIngresada, String palabraTraducida) {
+        try {
+            JsonObject data = new JsonObject();
+            data.addProperty("palabraIngresada", palabraIngresada);
+            data.addProperty("palabraTraducida", palabraTraducida);
 
+            // Imprimir los datos antes de enviar la solicitud
+            System.out.println("Datos a enviar: " + data.toString());
 
-    // Crea un respuesta JSON.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, data.toString());
 
-    // Inserta la traducción en la base de datos
-    public void insertarTraduccion(String palabraIngresada, String palabraTraducida) throws SQLException {
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=TRADUCTOR;encrypt=true;TrustServerCertificate=True;";
-        String usuario = "sa";
-        String contraseña = "francisDE";
+            Request request = new Request.Builder()
+                    .url(SUPABASE_URL + "/rest/v1/traduccionesGuardadas")
+                    .addHeader("apikey", SUPABASE_KEY)  // Usar la clave de autorización como un encabezado de apikey
+                    .addHeader("Content-Type", "application/json")
+                    .post(body)
+                    .build();
 
-        try (Connection con = DriverManager.getConnection(url, usuario, contraseña)) {
-            String sql = "INSERT INTO traduccionesGuardadas (palabraIngresada, palabraTraducida) VALUES (?, ?)";
-            PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, palabraIngresada);
-            pstmt.setString(2, palabraTraducida);
-            pstmt.executeUpdate();
-            System.out.println("Traducción guardada correctamente en la base de datos.");
-        } catch (SQLException e) {
-            throw e;
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                System.out.println("Traducción guardada correctamente en la base de datos.");
+            } else {
+                System.out.println("Error al guardar la traducción en la base de datos. Código de respuesta: " + response.code());
+            }
+        } catch (IOException e) {
+            System.out.println("Error al realizar la solicitud HTTP: " + e.getMessage());
         }
     }
 
@@ -104,11 +99,10 @@ public class TraductorIA_prueba {
                     System.out.println("Introduce la palabra a traducir:");
                     String palabra = scanner.nextLine();
                     try {
-                        String response = translateRequest.Post(palabra);
-                        String traduccion = prettify(response);
-                        System.out.println(traduccion);
-                        translateRequest.insertarTraduccion(palabra, traduccion); // Inserta la traducción en la base de datos
-                    } catch (Exception e) {
+                        String response = translateRequest.post(palabra);
+                        System.out.println(response);
+                        translateRequest.insertarTraduccion(palabra, response);
+                    } catch (IOException e) {
                         System.out.println("Error al traducir y guardar la palabra: " + e.getMessage());
                     }
                     break;

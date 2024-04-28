@@ -4,16 +4,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionBD {
-    // Método para establecer la conexión a la base de datos
-    public static Connection establecerConexion() throws SQLException {
-        // Configura los detalles de conexión a tu base de datos
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=TRADUCTOR;encrypt=true;TrustServerCertificate=True;";
-        String usuario = "sa";
-        String contraseña = "francisDE";
+    private static final String URL = "jdbc:postgresql://aws-0-us-west-1.pooler.supabase.com:5432/postgres";
+    private static final String USUARIO = "postgres.wqqmeoqsimjodihxysqs";
+    private static final String CONTRASEÑA = "holamundo123";
 
-        // Intenta establecer la conexión
+    public static Connection establecerConexion() throws SQLException {
         try {
-            Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+            Connection conexion = DriverManager.getConnection(URL, USUARIO, CONTRASEÑA);
             System.out.println("Conexión establecida con éxito.");
             return conexion;
         } catch (SQLException e) {
@@ -22,8 +19,7 @@ public class ConexionBD {
         }
     }
 
-    // Método para cerrar la conexión a la base de datos
-    public static void cerrarConexion(Connection conexion) {
+    public static void cerrarRecursos(Connection conexion) {
         if (conexion != null) {
             try {
                 conexion.close();
@@ -34,16 +30,15 @@ public class ConexionBD {
         }
     }
 
-    // Método main de ejemplo para probar la conexión
     public static void main(String[] args) {
         Connection conexion = null;
         try {
             conexion = establecerConexion();
-            // Aquí puedes realizar operaciones con la base de datos
+            // Operaciones con la base de datos
         } catch (SQLException e) {
-            // Manejo de errores
+            System.out.println("Error de base de datos: " + e.getMessage());
         } finally {
-            cerrarConexion(conexion);
+            cerrarRecursos(conexion);
         }
     }
 }
