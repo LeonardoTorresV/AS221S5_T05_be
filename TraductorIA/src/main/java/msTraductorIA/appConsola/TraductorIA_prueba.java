@@ -1,4 +1,4 @@
-package msTraductorIA.prueba;
+package msTraductorIA.appConsola;
 
 import java.io.IOException;
 import java.util.Scanner;
