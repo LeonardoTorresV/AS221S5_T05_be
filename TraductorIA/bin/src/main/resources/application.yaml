@@ -1,0 +1,22 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /oraclecloud
+spring:
+  application:
+    name: oraclecloud
+  datasource:
+    url: jdbc:oracle:thin:@t14cassiatec_medium?TNS_ADMIN=C:/wallets/ATP_CASSIATEC
+    username: ATP_CASSIATEC
+    password: Cassiatec14.v2
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database: oracle
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+oracle:
+  jdbc:
+    fanEnabled: false
