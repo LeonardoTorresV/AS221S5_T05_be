@@ -1,4 +1,4 @@
-# Trnslator
+# Translator
 ## Buscar el servicio
 * Buscar en la barra de menú "Todos los servicios".
   
