@@ -6,7 +6,7 @@ spring:
   application:
     name: oraclecloud
   datasource:
-    url: jdbc:oracle:thin:@t05microservicios_medium?TNS_ADMIN=C:/wallets/Wallet_T05MICROSERVICIOS
+    url: jdbc:oracle:thin:@t05microservicios_medium?TNS_ADMIN=wallets/Wallet_T05MICROSERVICIOS
     username: atptraductor
     password: Jonathan4041
     driver-class-name: oracle.jdbc.OracleDriver

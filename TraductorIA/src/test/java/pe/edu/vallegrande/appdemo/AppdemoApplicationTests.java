@@ -1,9 +1,11 @@
 package pe.edu.vallegrande.appdemo;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
-@SpringBootTest
+import pe.edu.vallegrande.cassiatec.TraductorIA_Application;
+
+@ContextConfiguration(classes = TraductorIA_Application.class)
 class AppdemoApplicationTests {
 
 	@Test
