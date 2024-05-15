@@ -1,10 +1,17 @@
 ![Logo](https://1.bp.blogspot.com/-QFfXTxd2zFk/XoJvlPAZxQI/AAAAAAAAFIA/gXP3PVgJ4OUzsKPvgMsG7p04fD7IHa4DwCLcBGAsYHQ/s1600/Robots%2Bartistico.gif)
-# BIENVENIDO A NUESTRO SERVICIO COGNITIVO
+#  🎉BIENVENIDO A NUESTRO SERVICIO COGNITIVO ✨
 
-### ¿Qué nos ofrece AZURE de Microsoft?
+### ¿Qué nos ofrece AZURE de Microsoft? 🤔
 Azure es una plataforma en la nube creada por Microsoft que ofrece una amplia gama de servicios para ayudar a las organizaciones a desarrollar, implementar y administrar aplicaciones de manera eficiente. Entre estos servicios se encuentran los servicios cognitivos, que permiten a los desarrolladores integrar capacidades de inteligencia artificial en sus aplicaciones de forma sencilla y efectiva.
 
 ![Logo](https://ayudaleyprotecciondatos.es/wp-content/uploads/2020/10/cloud-computing-azure-00-1536x863.jpg)
+
+# Creación de API de servicio cognitivo/ Translator Text 👇
+
+#### Descripción del API en azure
+La API Translator Text de Azure permite realizar traducciones de texto de manera rápida y precisa entre múltiples idiomas. Proporcionaremos una descripción detallada de las funcionalidades y características de esta API.
+![Logo](https://digireload.com/images/pointer/1366363161Microsoft-Azure-Speech-to-text.jpg)
+
 
 
 # Translator
