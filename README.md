@@ -10,11 +10,20 @@ Azure es una plataforma en la nube creada por Microsoft que ofrece una amplia ga
 
 #### Descripción del API en azure
 La API Translator Text de Azure permite realizar traducciones de texto de manera rápida y precisa entre múltiples idiomas. Proporcionaremos una descripción detallada de las funcionalidades y características de esta API.
+
 ![Logo](https://digireload.com/images/pointer/1366363161Microsoft-Azure-Speech-to-text.jpg)
 
+    
+## 🔗 USO HERRAMIENTAS TECNOLÓGICAS
+
+| ![Logo](https://camo.githubusercontent.com/3d823ffda909463800f5bc05023357b3c426401f465960796fd63c3b85040983/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6f7261636c652f6f7261636c652d617232312e737667)  | ![Logo](https://camo.githubusercontent.com/51bb01fa827a97aa7eb66ae9b2a29d53e2e1f097e310091539f144fc8e3cbe2f/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f676574706f73746d616e2f676574706f73746d616e2d617232312e737667) |
+| ------------- | ------------- |
+| ![Logo](https://camo.githubusercontent.com/8008db3c46a84c13638b2f233628a7114db37a121456f08d201d78ef4772c55a/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f646f636b65722f646f636b65722d617232312e737667)  | ![Logo](https://camo.githubusercontent.com/a87ec4d0bccd2cba9244cafb933ba3ad5c432da77c863d7f06d2c35c01839fbd/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6d6963726f736f66745f617a7572652f6d6963726f736f66745f617a7572652d617232312e737667)  |
+| ![Logo](https://camo.githubusercontent.com/4a948e11d0b2ac72fc2ee02d8539c83b7f50f043d8d0b62b0eb9d205001d7b6f/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f76697375616c73747564696f5f636f64652f76697375616c73747564696f5f636f64652d617232312e737667)  | ![Logo](https://camo.githubusercontent.com/0e553856fbace28cbb06af4b4e205dd7f30e2a4edd1dee0fd9788025cc3418c2/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f737072696e67696f2f737072696e67696f2d617232312e737667)  |
+| ![Logo](https://camo.githubusercontent.com/06b4e5bff59158170c7de80649579da23a0fdf97fb477775f829f012cd05ef22/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6a6176612f6a6176612d617232312e737667)  | ![Logo](https://camo.githubusercontent.com/bbfc91d1722146450deba77bd68fc168ca346890f377fa0d77b27e906797cca5/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6769742d73636d2f6769742d73636d2d617232312e737667) |
 
 
-# Translator
+# PASO A PASO DE COMO EMPEZAR A CREAR NUESTRO SERVICIO COGNITIVO/ Translator Text
 ## Buscar el servicio
 * Buscar en la barra de menú "Todos los servicios".
   
@@ -84,3 +93,11 @@ La API Translator Text de Azure permite realizar traducciones de texto de manera
 
 * Al presionar "Enviar", el servicio nos detectará el idioma y se nos traducirá al idioma que especificamos en los "Parámtros de solicitud"
     ![image](https://github.com/Torres-Leonardo/AS221S5_T05_be/assets/111779286/9bd287db-a97a-4ad2-a4ca-67dc6c0347fd)
+
+## 🚀 DESARROLLDORES 😎
+
+| T05_Translator_IA |               
+| ------------- |
+| ✨ CASTILLO SANABRIA, Francis |  
+| ✨ ESPICHAN QUINTO, Jonathan Javier  |
+| ✨ TORRES VICENTE, Leonardo |
