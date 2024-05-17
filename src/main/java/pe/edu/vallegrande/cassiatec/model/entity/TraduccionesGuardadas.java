@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,5 +28,6 @@ public class TraduccionesGuardadas {
     private String palabra_traducida;
 
     @Column(name = "estado")
+    @Builder.Default // Utilizamos @Builder con valor predeterminado
     private String estado = "A"; // Valor predeterminado para el estado
 }
