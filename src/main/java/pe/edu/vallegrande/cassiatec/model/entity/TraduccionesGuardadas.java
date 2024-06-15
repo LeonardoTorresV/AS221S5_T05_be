@@ -1,33 +1,17 @@
 package pe.edu.vallegrande.cassiatec.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "traducciones_guardadas")
+@Document(collection = "traducciones_guardadas")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TraduccionesGuardadas {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_traducciones_guardadas")
-    private Long id_traducciones_guardadas;
-    
-    @Column(name = "palabra_ingresada")
+    private String id_traducciones_guardadas;
     private String palabra_ingresada;
-
-    @Column(name = "palabra_traducida")
     private String palabra_traducida;
-
-    @Column(name = "estado")
-    @Builder.Default // Utilizamos @Builder con valor predeterminado
-    private String estado = "A"; // Valor predeterminado para el estado
+    private String estado; // Active or Inactive
 }
