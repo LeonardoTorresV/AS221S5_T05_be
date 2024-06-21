@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 
 
 @RestController
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin(origins = "*")
 @RequestMapping("/traducciones")
 public class TraduccionesController {
 
