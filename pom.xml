@@ -15,7 +15,7 @@
 	<name>Oracle Database Cloud</name>
 	<description>Conexion a base de datos oracle autonomous</description>
 	<properties>
-		<sonar.organization>jonathanespichan</sonar.organization>
+		<sonar.organization>torres-leonardo</sonar.organization>
   		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<java.version>17</java.version>
 		<springdoc-openapi.version>2.0.0</springdoc-openapi.version>
