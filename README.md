@@ -94,7 +94,7 @@ La API Translator Text de Azure permite realizar traducciones de texto de manera
 * Al presionar "Enviar", el servicio nos detectará el idioma y se nos traducirá al idioma que especificamos en los "Parámtros de solicitud"
     ![image](https://github.com/Torres-Leonardo/AS221S5_T05_be/assets/111779286/9bd287db-a97a-4ad2-a4ca-67dc6c0347fd)
 
-## 🚀 DESARROLLDORES 😎
+## 🚀 DESARROLLADORES 😎
 
 | T05_Translator_IA |               
 | ------------- |
